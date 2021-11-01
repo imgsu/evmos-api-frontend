@@ -1,2 +1,2 @@
 # evmos-api-frontend
-Streamlit frontend for Evmos API
+Frontend for Evmos API built using Streamlit. Taken from API reference documentation found [here](https://evm.evmos.org/api-docs).

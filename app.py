@@ -7,12 +7,13 @@ import os
 import urllib
 
 st.title("Evmos API Frontend")
+st.write("Frontend for Evmos API built using Streamlit. Taken from API reference documentation found [here](https://evm.evmos.org/api-docs).")
 
 action_df = pd.read_csv("action_list.csv", header=0)
 #st.write(action_df)
 evmos_url = "https://evm.evmos.org/api"
 
-col1, col2 = st.columns(2)
+col1, col2 = st.columns([1,2])
 select_action = col1.selectbox("Choose an action", action_df["action"])
 action_index = action_df[action_df["action"] == select_action].index[0]
 query = action_df.at[action_index, "query"]
@@ -38,7 +39,8 @@ if "contractAddressHash" in params:
     query = query.replace("{contractAddressHash}", contractAddressHash)
 
 if "date" in params:
-    date = st.date_input("Enter query date")
+    datecol1, datecol2 = st.columns([1,4])
+    date = datecol1.date_input("Enter query date")
     query = query.replace("{date}", str(date))
 
 query_url = evmos_url + query
