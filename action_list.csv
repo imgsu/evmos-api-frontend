@@ -9,20 +9,20 @@ tokentx,account,addressHash,?module=account&action=tokentx&address={addressHash}
 tokenbalance,account,"contractAddressHash, addressHash",?module=account&action=tokenbalance&contractaddress={contractAddressHash}&address={addressHash},Get token account balance for token contract address.
 tokenlist,account,addressHash,?module=account&action=tokenlist&address={addressHash},Get list of tokens owned by address.
 getminedblocks,account,addressHash,?module=account&action=getminedblocks&address={addressHash},Get list of blocks mined by address.
-listaccounts,account,,?module=account&action=listaccounts,"Get a list of accounts and their balances, sorted ascending by the time they were first seen by the explorer."
+listaccounts,account,none,?module=account&action=listaccounts,"Get a list of accounts and their balances, sorted ascending by the time they were first seen by the explorer."
 getLogs,logs,"fromBlockNumber, toBlockNumber, addressHash, firstTopic",?module=logs&action=getLogs&fromBlock={blockNumber}&toBlock={blockNumber}&address={addressHash}&topic0={firstTopic},"Get event logs for an address and/or topics. Up to a maximum of 1,000 event logs."
 getToken,token,contractAddressHash,?module=token&action=getToken&contractaddress={contractAddressHash},Get ERC-20 or ERC-721 token by contract address.
 getTokenHolders,token,contractAddressHash,?module=token&action=getTokenHolders&contractaddress={contractAddressHash},Get token holders by contract address.
 tokensupply,stats,contractAddressHash,?module=stats&action=tokensupply&contractaddress={contractAddressHash},Get ERC-20 or ERC-721 token total supply by contract address.
-ethsupplyexchange,stats,,?module=stats&action=ethsupplyexchange,Get total supply in Wei from exchange.
-ethsupply,stats,,?module=stats&action=ethsupply,Get total supply in Wei from DB.
-coinsupply,stats,,?module=stats&action=coinsupply,Get total coin supply from DB minus burnt number.
-coinprice,stats,,?module=stats&action=coinprice,Get latest price of native coin in USD and BTC.
+ethsupplyexchange,stats,none,?module=stats&action=ethsupplyexchange,Get total supply in Wei from exchange.
+ethsupply,stats,none,?module=stats&action=ethsupply,Get total supply in Wei from DB.
+coinsupply,stats,none,?module=stats&action=coinsupply,Get total coin supply from DB minus burnt number.
+coinprice,stats,none,?module=stats&action=coinprice,Get latest price of native coin in USD and BTC.
 totalfees,stats,date,?module=stats&action=totalfees&date={date},Gets total transaction fees in Wei are paid by users to validators per day.
 getblockreward,block,blockNumber,?module=block&action=getblockreward&blockno={blockNumber},Get block reward by block number.
 getblocknobytime,block,"blockTimestamp, before/after",?module=block&action=getblocknobytime×tamp={blockTimestamp}&closest={before/after},Get Block Number by Timestamp.
-eth_block_number,block,,?module=block&action=eth_block_number,Mimics Ethereum JSON RPC's eth_blockNumber. Returns the lastest block number
-listcontracts,contract,,?module=contract&action=listcontracts,"Get a list of contracts, sorted ascending by the time they were first seen by the explorer. If you provide the filters `not_decompiled`(`4`) or `not_verified(4)` the results will not be sorted for performance reasons. "
+eth_block_number,block,none,?module=block&action=eth_block_number,Mimics Ethereum JSON RPC's eth_blockNumber. Returns the lastest block number
+listcontracts,contract,none,?module=contract&action=listcontracts,"Get a list of contracts, sorted ascending by the time they were first seen by the explorer. If you provide the filters `not_decompiled`(`4`) or `not_verified(4)` the results will not be sorted for performance reasons. "
 getabi,contract,addressHash,?module=contract&action=getabi&address={addressHash},Get ABI for verified contract. Also available through a GraphQL 'addresses' query.
 getsourcecode,contract,addressHash,?module=contract&action=getsourcecode&address={addressHash},Get contract source code for verified contract. Also available through a GraphQL 'addresses' query.
 verify,contract,"addressHash, name, complierVersion, false, contractSourceCode",?module=contract&action=verify&addressHash={addressHash}&name={name}&compilerVersion={compilerVersion}&optimization={false}&contractSourceCode={contractSourceCode},Verify a contract with its source code and contract creation information. 
