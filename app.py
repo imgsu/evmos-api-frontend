@@ -6,8 +6,8 @@ import requests
 import os
 import urllib
 
-st.title("Evmos API Frontend")
-st.write("Frontend for Evmos API built using Streamlit. Taken from API reference documentation found [here](https://evm.evmos.org/api-docs).")
+st.title("Evmos EVM API Frontend")
+st.write("Frontend for Evmos EVM API built using [Streamlit](https://streamlit.io). Taken from Evmos API reference documentation found [here](https://evm.evmos.org/api-docs).")
 
 action_df = pd.read_csv("action_list.csv", header=0)
 #st.write(action_df)
