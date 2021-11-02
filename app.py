@@ -43,6 +43,24 @@ if "date" in params:
     date = datecol1.date_input("Enter query date")
     query = query.replace("{date}", str(date))
 
+if "fromBlockNumber, toBlockNumber" in params:
+    fromblock, toblock = st.columns([1,1])
+    fromBlockNumber = fromblock.number_input("Enter from block number", min_value=0, value=2165403)
+    toBlockNumber = toblock.number_input("Enter to block number", min_value=1, value=2165404)
+    query = query.replace("{fromBlockNumber}", str(fromBlockNumber))
+    query = query.replace("{toBlockNumber}", str(toBlockNumber))
+elif "blockNumber" in params:
+    blockcol1, blockcol2 = st.columns([1,2])
+    blockNumber = blockcol1.number_input("Enter block number", min_value=0, value=2165403)
+    query = query.replace("{blockNumber}", str(blockNumber))
+
+if "blockTimestamp" in params:
+    stampcol1, stampcol2 = st.columns([2,1])
+    blockTimestamp = stampcol1.number_input("Enter block timestamp", min_value=0)
+    search = stampcol2.select_slider("Search before/after timestamp", options=["before", "after"])
+    query = query.replace("{blockTimestamp}", str(blockTimestamp))
+    query = query.replace("{before/after}", str(search))
+
 query_url = evmos_url + query
 st.write("Query URL:", query_url)
 query = requests.get(query_url)
