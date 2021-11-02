@@ -6,6 +6,9 @@ import requests
 import os
 import urllib
 
+st.set_page_config(
+    page_title="Evmos EVM API Frontend", layout="centered", initial_sidebar_state="auto",
+)
 st.title("Evmos EVM API Frontend")
 st.write("Frontend for Evmos EVM API built using [Streamlit](https://streamlit.io). Taken from Evmos API reference documentation found [here](https://evm.evmos.org/api-docs).")
 
