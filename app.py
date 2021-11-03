@@ -7,10 +7,14 @@ import os
 import urllib
 
 st.set_page_config(
-    page_title="Evmos EVM API Frontend", layout="centered", initial_sidebar_state="auto",
+    page_title="Evmos EVM API Frontend",
+    page_icon=":microscope:",
+    layout="centered",
+    initial_sidebar_state="auto",
 )
 st.title("Evmos EVM API Frontend")
-st.write("Frontend for Evmos EVM API built using [Streamlit](https://streamlit.io). Taken from Evmos API reference documentation found [here](https://evm.evmos.org/api-docs).")
+st.markdown("img#1916 | evmos1afcdd60zqyntzl96kfwg3n2d0sms0yg0ure2lv")
+st.info("Frontend for Evmos EVM API built using [Streamlit](https://streamlit.io). Taken from Evmos API reference documentation found [here](https://evm.evmos.org/api-docs).")
 
 action_df = pd.read_csv("action_list.csv", header=0)
 #st.write(action_df)
@@ -30,7 +34,8 @@ if "addressHash2, addressHash3" in params:
     multiAddressHash = st.text_input("Enter multiple address hashes here separated by commas", "0x98217A5BDba4AD22bDFcf5129f39748036e56f4D,0x1549d29D1d51A694Cd5bbC89bF2c5F86ea5cE151")
     query = query.replace("{addressHash1,addressHash2,addressHash3}", multiAddressHash)
 elif "addressHash" in params:
-    addressHash = st.text_input("Enter address hash here", "0x98217A5BDba4AD22bDFcf5129f39748036e56f4D")
+    addresscol1, addresscol2 = st.columns([2, 1])
+    addressHash = addresscol1.text_input("Enter address hash here", "0x98217A5BDba4AD22bDFcf5129f39748036e56f4D")
     query = query.replace("{addressHash}", addressHash)
 
 if "transactionHash" in params:
