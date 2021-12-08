@@ -1,0 +1,6 @@
+﻿name,contract,query
+EvmosPFP (EVPFP),0xc2B38b330Aa27d7ff8dc7681946F7E9B972b1536,?module=token&action=getTokenHolders&contractaddress=0xc2B38b330Aa27d7ff8dc7681946F7E9B972b1536
+EvmosICO (ETK),0x8DE6aeC05F93Be224c8883d75f8ef42bA7423980,?module=token&action=getTokenHolders&contractaddress=0x8DE6aeC05F93Be224c8883d75f8ef42bA7423980
+Coin Flip (FLIP),0xF512CF977A4857b452E43578815ca445cD7E8446,?module=token&action=getTokenHolders&contractaddress=0xF512CF977A4857b452E43578815ca445cD7E8446
+evmLoot (EvmLoot),0x90aecAd92aeF3C81eFebd7bF937A84060DB54fc1,?module=token&action=getTokenHolders&contractaddress=0x90aecAd92aeF3C81eFebd7bF937A84060DB54fc1
+"	Nation Token (NTN)",0x11Dd65D6FD791E69CBF6bc9cB4c71E22E790198A,?module=token&action=getTokenHolders&contractaddress=0x11Dd65D6FD791E69CBF6bc9cB4c71E22E790198A

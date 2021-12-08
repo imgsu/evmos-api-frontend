@@ -14,9 +14,12 @@ st.set_page_config(
 )
 st.title("Evmos EVM API Frontend")
 st.markdown("img#1916 | evmos1afcdd60zqyntzl96kfwg3n2d0sms0yg0ure2lv")
+
+page = st.radio("", ["API Frontend", "Dashboard"])
 st.info("Frontend for Evmos EVM API built using [Streamlit](https://streamlit.io). Taken from Evmos API reference documentation found [here](https://evm.evmos.org/api-docs).")
 
 action_df = pd.read_csv("action_list.csv", header=0)
+token_df = pd.read_csv("token_list.csv", header=0)
 #st.write(action_df)
 evmos_url = "https://evm.evmos.org/api"
 
@@ -88,3 +91,21 @@ st.download_button(
     file_name='result.json',
     mime='text/json',
 )
+
+select_token = st.selectbox("Choose a token", token_df["name"])
+token_index = token_df[token_df["name"] == select_token].index[0]
+token_query = token_df.at[token_index, "query"]
+
+query_url = evmos_url + token_query
+st.write("Query URL:", query_url)
+query = requests.get(query_url)
+
+if query.ok:
+    result = query.json()
+else:
+    query.raise_for_status()
+
+result_df = pd.json_normalize(result, record_path=['result'])
+
+st.subheader(str(select_token))
+st.dataframe(result_df)
